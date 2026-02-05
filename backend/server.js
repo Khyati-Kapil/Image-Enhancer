@@ -52,7 +52,9 @@ app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 
 app.use("/api/auth", authRoutes);
+app.use("/auth", authRoutes); // Alias for Vercel compatibility
 app.use("/api/images", imageRoutes);
+app.use("/images", imageRoutes); // Alias for Vercel compatibility
 
 
 app.get("/api/health", (req, res) => {

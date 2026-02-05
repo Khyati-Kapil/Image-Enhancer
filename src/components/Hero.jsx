@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-16 checkered-bg">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/90 via-black/70 to-black/90" />
 
       <div className="absolute inset-0 grid-lines opacity-30" />
 
