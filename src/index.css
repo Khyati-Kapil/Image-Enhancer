@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Professional Dark Theme */
+
 :root {
   --color-bg-primary: #0a0a0a;
   --color-bg-secondary: #111111;
@@ -31,7 +31,7 @@ body {
   line-height: 1.6;
 }
 
-/* Checkered pattern overlay - subtle */
+
 .checkered-bg {
   background-image: 
     linear-gradient(45deg, #141414 25%, transparent 25%, transparent 75%, #141414 75%, #141414),
@@ -40,7 +40,7 @@ body {
   background-position: 0 0, 30px 30px;
 }
 
-/* Light checkered */
+
 .checkered-light {
   background-image: 
     linear-gradient(45deg, #1a1a1a 25%, transparent 25%, transparent 75%, #1a1a1a 75%, #1a1a1a),
@@ -49,7 +49,7 @@ body {
   background-position: 0 0, 20px 20px;
 }
 
-/* Subtle gradient backgrounds */
+
 .gradient-bg {
   background: var(--gradient-grey);
 }
@@ -58,7 +58,7 @@ body {
   background: var(--gradient-subtle);
 }
 
-/* Grid lines */
+
 .grid-lines {
   background-image: 
     linear-gradient(to right, rgba(58, 58, 58, 0.15) 1px, transparent 1px),
@@ -66,7 +66,7 @@ body {
   background-size: 60px 60px;
 }
 
-/* Professional button styles */
+
 .btn-primary {
   background: var(--color-text-primary);
   border: 1px solid var(--color-text-primary);
@@ -99,7 +99,6 @@ body {
   background: rgba(255, 255, 255, 0.03);
 }
 
-/* Card styles */
 .card {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border);
@@ -111,7 +110,7 @@ body {
   border-color: var(--color-border-light);
 }
 
-/* Glow effects */
+
 .glow-subtle {
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
 }
@@ -120,7 +119,7 @@ body {
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.05);
 }
 
-/* Fade animations */
+
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
@@ -192,7 +191,7 @@ body {
   background-clip: text;
 }
 
-/* Border gradient */
+
 .border-gradient {
   position: relative;
   background: var(--color-bg-card);
@@ -213,7 +212,6 @@ body {
   pointer-events: none;
 }
 
-/* Professional input styles */
 .input-field {
   background: var(--color-bg-tertiary);
   border: 1px solid var(--color-border);
@@ -230,7 +228,7 @@ body {
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.03);
 }
 
-/* Skeleton loading */
+
 .skeleton {
   background: linear-gradient(90deg, var(--color-bg-tertiary) 25%, var(--color-bg-card) 50%, var(--color-bg-tertiary) 75%);
   background-size: 200% 100%;
