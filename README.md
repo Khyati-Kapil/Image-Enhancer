@@ -2,16 +2,9 @@ Pixora - Image Enhancement Platform
 
 <div align="center">
 
-![Pixora Banner](https://images.unsplash.com/photo-1517841905240-472988babdf9?w=1200&q=80)
+
 
 **Transform Your Images with Neural Magic**
-
-[![React](https://img.shields.io/badge/React-19.2.0-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-7.2.4-646CFF?style=for-the-badge&logo=vite)](https://vitejs.dev/)
-[![Node.js](https://img.shields.io/badge/Node.js-20+-339933?style=for-the-badge&logo=node.js)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express-4.18.2-000000?style=for-the-badge&logo=express)](https://expressjs.com/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-8.0.3-47A248?style=for-the-badge&logo=mongodb)](https://www.mongodb.com/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.18-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 
 </div>
 
@@ -28,7 +21,7 @@ Pixora is a modern, image enhancement platform built with the MERN stack (MongoD
 - **Sharpening** - Enhance image details and edges
 - **Deblur** - Fix blurry images caused by camera shake
 - **Color Correction** - Automatic color and contrast adjustment
-- **⚡ Fast Processing** - Get results in seconds
+- **Fast Processing** - Get results in seconds
 
 ---
 
@@ -36,58 +29,58 @@ Pixora is a modern, image enhancement platform built with the MERN stack (MongoD
 
 ```
 image-enhancer/
-├── 📂 public/                 # Static assets
-├── 📂 src/                    # Frontend source code
-│   ├── 📂 components/         # Reusable React components
-│   │   ├── AuthForm.jsx      # Authentication form
-│   │   ├── BeforeAfterSlider.jsx  # Image comparison slider
-│   │   ├── Features.jsx       # Features showcase
-│   │   ├── Gallery.jsx        # Image gallery
-│   │   ├── Hero.jsx           # Landing hero section
-│   │   ├── ImagePreview.jsx   # Image preview component
-│   │   ├── ImageUpload.jsx    # Upload functionality
-│   │   ├── Loading.jsx        # Loading states
-│   │   └── Navbar.jsx         # Navigation bar
-│   ├──  context/            # React context providers
-│   │   └── AuthContext.jsx    # Authentication state
-│   ├──  pages/              # Page components
-│   │   ├── Dashboard.jsx      # Main dashboard
-│   │   ├── Gallery.jsx       # User gallery
-│   │   ├── Landing.jsx       # Landing page
-│   │   ├── Login.jsx         # Login page
-│   │   └── Signup.jsx        # Signup page
-│   ├── routes/             # Route components
-│   │   └── ProtectedRoute.jsx # Protected route wrapper
-│   ├──  services/           # API services
-│   │   ├── api.js            # Axios instance
-│   │   └── image.js          # Image API calls
-│   ├──  utils/              # Utility functions
-│   │   └── enhanceImageApi.js # Image enhancement logic
-│   ├── App.jsx               # Main app component
-│   └── main.jsx              # App entry point
-├── backend/                # Backend source code
-│   ├──  config/             # Configuration files
-│   │   └── db.js             # MongoDB connection
-│   ├──  controllers/        # Route controllers
-│   │   ├── authController.js # Authentication logic
-│   │   └── imageController.js # Image processing logic
-│   ├──  middleware/         # Express middleware
-│   │   └── auth.js           # JWT authentication
-│   ├──  models/             # Mongoose models
-│   │   ├── Image.js          # Image schema
-│   │   └── User.js           # User schema
-│   ├──  routes/             # Express routes
-│   │   ├── authRoutes.js     # Auth endpoints
-│   │   └── imageRoutes.js    # Image endpoints
-│   ├──  utils/              # Backend utilities
-│   │   └── enhanceImageApi.js # Enhancement algorithms
-│   └── server.js              # Server entry point
-├──  .env.example            # Environment variables template
-├──  .gitignore             # Git ignore rules
-├──  eslint.config.js       # ESLint configuration
-├──  package.json           # Frontend dependencies
-├──  vite.config.js         # Vite configuration
-└──  README.md              # This file
+├──  public/                
+├──  src/                   
+│   ├──  components/         
+│   │   ├── AuthForm.jsx     
+│   │   ├── BeforeAfterSlider.jsx  
+│   │   ├── Features.jsx      
+│   │   ├── Gallery.jsx       
+│   │   ├── Hero.jsx           
+│   │   ├── ImagePreview.jsx   
+│   │   ├── ImageUpload.jsx    
+│   │   ├── Loading.jsx        
+│   │   └── Navbar.jsx         
+│   ├──  context/            
+│   │   └── AuthContext.jsx    
+│   ├──  pages/              
+│   │   ├── Dashboard.jsx      
+│   │   ├── Gallery.jsx      
+│   │   ├── Landing.jsx      
+│   │   ├── Login.jsx         
+│   │   └── Signup.jsx        
+│   ├── routes/             
+│   │   └── ProtectedRoute.jsx 
+│   ├──  services/           
+│   │   ├── api.js            
+│   │   └── image.js          
+│   ├──  utils/              
+│   │   └── enhanceImageApi.js 
+│   ├── App.jsx               
+│   └── main.jsx              
+├── backend/                
+│   ├──  config/             
+│   │   └── db.js             
+│   ├──  controllers/        
+│   │   ├── authController.js 
+│   │   └── imageController.js 
+│   ├──  middleware/        
+│   │   └── auth.js           
+│   ├──  models/             
+│   │   ├── Image.js         
+│   │   └── User.js           
+│   ├──  routes/             
+│   │   ├── authRoutes.js     
+│   │   └── imageRoutes.js    
+│   ├──  utils/              
+│   │   └── enhanceImageApi.js 
+│   └── server.js              
+├──  .env.example            
+├──  .gitignore             
+├──  eslint.config.js      
+├──  package.json           
+├──  vite.config.js         
+└──  README.md            
 
 ```
 
@@ -218,7 +211,7 @@ import ImageUpload from "./components/ImageUpload";
 
 ---
 
-## 🔒 Security Features
+## Security Features
 
 - JWT-based authentication
 - Password hashing with bcryptjs
