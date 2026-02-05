@@ -25,15 +25,15 @@ const allowedOrigins = [
 
 const corsOptions = {
   origin: function (origin, callback) {
-   
+    // Allow requests with no origin (mobile apps, curl requests)
     if (!origin) return callback(null, true);
     
-    
+    // Allow localhost for development
     if (origin.match(/^http:\/\/localhost:\d+$/)) {
       return callback(null, true);
     }
     
- =
+    // Allow Vercel and Render frontend
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
@@ -42,6 +42,9 @@ const corsOptions = {
   },
   credentials: true,
 };
+
+// Handle preflight OPTIONS requests
+app.options('*', cors(corsOptions));
 
 app.use(cors(corsOptions));
 app.use(express.json());
