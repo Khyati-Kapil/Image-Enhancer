@@ -1,11 +1,10 @@
-
 import axios from "axios";
 
-const API_KEY = "wx14ibx93lfx5judr"
+const API_KEY = process.env.IMAGE_API_KEY 
 const BASE_URL = "https://techhk.aoscdn.com/";
-const MAXIMUM_RETRIES = 5;
+const MAXIMUM_RETRIES = 20;
 
-export const enhancedImageAPI = async (file) => {
+export const enhancedImageAPI = async (file, enhancementType = "general", scaleFactor = 2) => {
     try {
         const taskId = await uploadImage(file);
         console.log("Image Uploaded Successfully, Task ID:", taskId);
@@ -16,6 +15,7 @@ export const enhancedImageAPI = async (file) => {
         return enhancedImageData;
     } catch (error) {
         console.log("Error enhancing image:", error.message);
+        throw error;
     }
 };
 
@@ -42,15 +42,20 @@ const uploadImage = async (file) => {
 
 const PollForEnhancedImage = async (taskId, retries = 0) => {
     const result = await fetchEnhancedImage(taskId);
+    
+    // FIXED: Check if FAILED (state 3)
+    if (result.state === 3) {
+        throw new Error("Image processing failed");
+    }
 
-    if (result.state === 4) {
+    // FIXED: Continue polling while NOT completed (state !== 4)
+    if (result.state !== 4) {
         console.log(`Processing...(${retries}/${MAXIMUM_RETRIES})`);
 
         if (retries >= MAXIMUM_RETRIES) {
             throw new Error("Max retries reached. Please try again later.");
         }
 
-        // wait for 2 second
         await new Promise((resolve) => setTimeout(resolve, 2000));
 
         return PollForEnhancedImage(taskId, retries + 1);
