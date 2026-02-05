@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { imageService } from "../services/image";
 
-// Professional Icons
+
 const Icons = {
   Upscale: ({ className }) => (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,7 +56,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
     ? images 
     : images.filter(img => img.enhancementType === filterType);
 
-  // Helper function to render icon
+
   const renderIcon = (type) => {
     const config = typeConfig[type];
     if (config?.icon) {
@@ -85,7 +85,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
 
   return (
     <div className="space-y-6">
-      {/* Header & Filters */}
+
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h2 className="text-2xl font-bold text-white">Your Gallery</h2>
@@ -93,7 +93,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
         </div>
 
         <div className="flex items-center space-x-4">
-          {/* Type Filter */}
+
           <select
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
@@ -108,7 +108,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
             <option value="general">General</option>
           </select>
 
-          {/* View Toggle */}
+          
           <div className="flex bg-gray-800 rounded-lg p-1">
             <button
               onClick={() => setViewMode("grid")}
@@ -130,7 +130,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
         </div>
       </div>
 
-      {/* Images Grid/List */}
+
       {filteredImages.length === 0 ? (
         <motion.div
           initial={{ opacity: 0 }}
@@ -193,7 +193,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                     </button>
                   </div>
 
-                  {/* Status Badge */}
+                  
                   <div className="absolute top-2 left-2">
                     <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                       image.status === "completed" 
@@ -206,7 +206,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                     </span>
                   </div>
 
-{/* Type Badge */}
+
                   <div className="absolute top-2 right-2">
                     <span className="px-2 py-1 bg-black/60 backdrop-blur-sm rounded-full text-xs text-white flex items-center gap-1">
                       <span className="w-3 h-3">
@@ -217,7 +217,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                   </div>
                 </div>
 
-                {/* Info */}
+
                 <div className="p-3">
                   <p className="text-sm font-medium text-white truncate">{image.originalName}</p>
                   <p className="text-xs text-gray-400">{formatDate(image.createdAt)}</p>
@@ -239,14 +239,14 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                 className="flex items-center space-x-4 bg-gray-800/50 border border-gray-700 rounded-xl p-4 hover:border-gray-600 transition-all cursor-pointer"
                 onClick={() => setSelectedImage(image)}
               >
-                {/* Thumbnail */}
+
                 <img
                   src={image.enhancedImage}
                   alt={image.originalName}
                   className="w-20 h-20 object-cover rounded-lg"
                 />
 
-                {/* Info */}
+                
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-white truncate">{image.originalName}</p>
                   <p className="text-xs text-gray-400">{formatDate(image.createdAt)}</p>
@@ -265,7 +265,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                   </div>
                 </div>
 
-                {/* Actions */}
+     
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={(e) => {
@@ -296,7 +296,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
         </div>
       )}
 
-      {/* Image Detail Modal */}
+
       <AnimatePresence>
         {selectedImage && (
           <motion.div
@@ -313,7 +313,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
               className="relative max-w-5xl w-full bg-gray-800 rounded-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
+            
               <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 rounded-full transition-colors"
@@ -323,7 +323,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                 </svg>
               </button>
 
-              {/* Before/After Comparison */}
+           
               <div className="grid grid-cols-2 gap-4 p-4">
                 <div>
                   <p className="text-sm text-gray-400 mb-2">Original</p>
@@ -343,7 +343,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                 </div>
               </div>
 
-              {/* Info */}
+ 
               <div className="p-4 border-t border-gray-700">
                 <div className="flex items-center justify-between">
 <div className="flex items-center space-x-4">
