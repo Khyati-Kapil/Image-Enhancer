@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import Navbar from "../components/Navbar";
+import Spotlight from "../components/Spotlight";
 import { enhancedImageAPI } from "../utils/enhanceImageApi";
 import { imageService } from "../services/image";
 import { useAuth } from "../context/AuthContext";
@@ -177,6 +178,7 @@ const Dashboard = () => {
 
     return (
         <div className="min-h-screen bg-black">
+            <Spotlight />
             <Navbar />
             <main className="pt-16 px-4 pb-12">
                 {/* Header */}

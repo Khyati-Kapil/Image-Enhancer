@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link, useLocation } from "react-router-dom";
+import Spotlight from "./Spotlight";
 
 const AuthForm = ({ type = "login" }) => {
   const [isLogin, setIsLogin] = useState(type === "login");
@@ -46,6 +47,7 @@ const AuthForm = ({ type = "login" }) => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-black px-4 py-12">
+      <Spotlight />
     
       <div className="absolute inset-0 checkered-bg" />
       <div className="absolute inset-0 bg-black/90" />
