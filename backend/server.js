@@ -19,6 +19,7 @@ const allowedOrigins = [
   'http://localhost:3000',
   'http://localhost:5173',
   'http://localhost:4173',
+  'https://image-enhancer-git-master-khyati-kapils-projects.vercel.app',
   'https://image-enhancer-murex.vercel.app',
   'https://pixora-qpa9.onrender.com',
 ];
