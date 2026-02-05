@@ -15,13 +15,26 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5173',
+  'http://localhost:4173',
+  'https://image-enhancer-murex.vercel.app',
+  'https://pixora-qpa9.onrender.com',
+];
+
 const corsOptions = {
   origin: function (origin, callback) {
-    
+   
     if (!origin) return callback(null, true);
     
-
+    
     if (origin.match(/^http:\/\/localhost:\d+$/)) {
+      return callback(null, true);
+    }
+    
+ =
+    if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
     
