@@ -1,20 +1,46 @@
-import Home from "./components/Home";
-const App = () => {
-    return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-8 px-4 ">
-            <div className="text-center mb-8">
-                <h1 className="text-5xl font-bold text-gray-800 mb-2">
-                    AI Image Enhancer{" "}
-                </h1>
-                <p className="text-lg text-gray-500">
-                    Upload your Image and let AI enhance to in seconds!
-                </p>
-            </div>
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./routes/ProtectedRoute";
 
-            <Home />
 
-        </div>
-    );
-};
+import Landing from "./pages/Landing";
+import Dashboard from "./pages/Dashboard";
+import GalleryPage from "./pages/Gallery";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+
+function App() {
+  return (
+    <AuthProvider>
+      <Router>
+        <Routes>
+         
+          <Route path="/" element={<Landing />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+
+         
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute allowGuest={true}>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+<Route
+            path="/gallery"
+            element={
+              <ProtectedRoute allowGuest={true}>
+                <GalleryPage />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </Router>
+    </AuthProvider>
+  );
+}
 
 export default App;
+

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { imageService } from "../services/image";
 
-
 const Icons = {
   Upscale: ({ className }) => (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,7 +84,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
 
   return (
     <div className="space-y-6">
-
+    
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h2 className="text-2xl font-bold text-white">Your Gallery</h2>
@@ -93,7 +92,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
         </div>
 
         <div className="flex items-center space-x-4">
-
+         
           <select
             value={filterType}
             onChange={(e) => setFilterType(e.target.value)}
@@ -108,7 +107,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
             <option value="general">General</option>
           </select>
 
-          
+=
           <div className="flex bg-gray-800 rounded-lg p-1">
             <button
               onClick={() => setViewMode("grid")}
@@ -130,7 +129,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
         </div>
       </div>
 
-
+      {/* Images Grid/List */}
       {filteredImages.length === 0 ? (
         <motion.div
           initial={{ opacity: 0 }}
@@ -158,7 +157,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                 className="group relative bg-gray-800/50 border border-gray-700 rounded-xl overflow-hidden hover:border-gray-600 transition-all cursor-pointer"
                 onClick={() => setSelectedImage(image)}
               >
-                {/* Image Preview */}
+               
                 <div className="aspect-square relative overflow-hidden">
                   <img
                     src={image.enhancedImage}
@@ -167,7 +166,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   
-                  {/* Hover Actions */}
+                 
                   <div className="absolute inset-0 flex items-center justify-center space-x-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     <button
                       onClick={(e) => {
@@ -217,7 +216,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                   </div>
                 </div>
 
-
+               
                 <div className="p-3">
                   <p className="text-sm font-medium text-white truncate">{image.originalName}</p>
                   <p className="text-xs text-gray-400">{formatDate(image.createdAt)}</p>
@@ -239,14 +238,14 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                 className="flex items-center space-x-4 bg-gray-800/50 border border-gray-700 rounded-xl p-4 hover:border-gray-600 transition-all cursor-pointer"
                 onClick={() => setSelectedImage(image)}
               >
-
+               
                 <img
                   src={image.enhancedImage}
                   alt={image.originalName}
                   className="w-20 h-20 object-cover rounded-lg"
                 />
 
-                
+         
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-white truncate">{image.originalName}</p>
                   <p className="text-xs text-gray-400">{formatDate(image.createdAt)}</p>
@@ -265,7 +264,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                   </div>
                 </div>
 
-     
+         
                 <div className="flex items-center space-x-2">
                   <button
                     onClick={(e) => {
@@ -296,7 +295,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
         </div>
       )}
 
-
+      
       <AnimatePresence>
         {selectedImage && (
           <motion.div
@@ -323,7 +322,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                 </svg>
               </button>
 
-           
+             
               <div className="grid grid-cols-2 gap-4 p-4">
                 <div>
                   <p className="text-sm text-gray-400 mb-2">Original</p>
@@ -343,7 +342,7 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
                 </div>
               </div>
 
- 
+             
               <div className="p-4 border-t border-gray-700">
                 <div className="flex items-center justify-between">
 <div className="flex items-center space-x-4">
