@@ -53,7 +53,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, beforeLabel = "Original", 
         <img
           src={beforeImage}
           alt={beforeLabel}
-          className="absolute inset-0 w-full h-full object-contain"
+          className="absolute inset-0 w-full h-full object-contain blur-[1px]"
         />
 
         

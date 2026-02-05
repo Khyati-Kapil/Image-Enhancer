@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import BeforeAfterSlider from "./BeforeAfterSlider";
 
 const Hero = () => {
   return (
@@ -59,14 +60,26 @@ const Hero = () => {
       </div>
 
     
-      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 hidden lg:block">
-        <div className="w-80 h-80 border border-gray-800 flex items-center justify-center relative card glow-subtle">
-          <div className="absolute inset-2 border border-gray-700" />
-          <div className="w-48 h-48 border border-gray-600 flex items-center justify-center bg-black/50 hover-scale transition-transform">
-            <div className="text-center">
-       
-              <div className="text-sm text-gray-500 tracking-widest">ENHANCE YOUR GALLERY</div>
+      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 hidden lg:block pr-8">
+        <div className="flex items-center gap-4">
+          <div className="w-80 h-80 border border-gray-800 flex items-center justify-center relative card glow-subtle">
+            <div className="absolute inset-2 border border-gray-700" />
+            <div className="w-48 h-48 border border-gray-600 flex items-center justify-center bg-black/50 hover-scale transition-transform">
+              <div className="text-center">
+           
+                <div className="text-sm text-gray-500 tracking-widest">ENHANCE YOUR GALLERY</div>
+              </div>
             </div>
+          </div>
+          
+         
+          <div className="w-80 h-80 border border-gray-800  rounded-lg">
+            <BeforeAfterSlider 
+              beforeImage="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=10"
+              afterImage="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&q=80"
+              beforeLabel="Blur"
+              afterLabel="Clear"
+            />
           </div>
         </div>
       </div>
