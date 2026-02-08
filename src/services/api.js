@@ -9,7 +9,7 @@ const api = axios.create({
   },
 });
 
-// Request interceptor for auth token
+
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
@@ -23,7 +23,7 @@ api.interceptors.request.use(
   }
 );
 
-// Response interceptor for error handling
+
 api.interceptors.response.use(
   (response) => response,
   (error) => {

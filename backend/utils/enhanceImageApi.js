@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_KEY = process.env.IMAGE_API_KEY 
 const BASE_URL = "https://techhk.aoscdn.com/";
-const MAXIMUM_RETRIES = 20;
+const MAXIMUM_RETRIES = 10;
 
 export const enhancedImageAPI = async (file, enhancementType = "general", scaleFactor = 2) => {
     try {
@@ -43,12 +43,12 @@ const uploadImage = async (file) => {
 const PollForEnhancedImage = async (taskId, retries = 0) => {
     const result = await fetchEnhancedImage(taskId);
     
-    // FIXED: Check if FAILED (state 3)
+   
     if (result.state === 3) {
         throw new Error("Image processing failed");
     }
 
-    // FIXED: Continue polling while NOT completed (state !== 4)
+    
     if (result.state !== 4) {
         console.log(`Processing...(${retries}/${MAXIMUM_RETRIES})`);
 

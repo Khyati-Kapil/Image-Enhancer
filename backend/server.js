@@ -26,15 +26,15 @@ const allowedOrigins = [
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (mobile apps, curl requests)
+    
     if (!origin) return callback(null, true);
     
-    // Allow localhost for development
+
     if (origin.match(/^http:\/\/localhost:\d+$/)) {
       return callback(null, true);
     }
     
-    // Allow Vercel and Render frontend
+ 
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
@@ -44,7 +44,7 @@ const corsOptions = {
   credentials: true,
 };
 
-// Handle preflight OPTIONS requests
+
 app.options('*', cors(corsOptions));
 
 app.use(cors(corsOptions));
@@ -53,9 +53,9 @@ app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 
 app.use("/api/auth", authRoutes);
-app.use("/auth", authRoutes); // Alias for Vercel compatibility
+app.use("/auth", authRoutes); 
 app.use("/api/images", imageRoutes);
-app.use("/images", imageRoutes); // Alias for Vercel compatibility
+app.use("/images", imageRoutes); 
 
 
 app.get("/api/health", (req, res) => {

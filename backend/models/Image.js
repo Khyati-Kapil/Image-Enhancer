@@ -16,7 +16,7 @@ const imageSchema = new mongoose.Schema({
   },
   enhancementType: {
     type: String,
-    enum: ["upscale", "denoise", "sharpen", "deblur", "color-correct", "general"],
+    enum: ["upscale", "denoise", "sharpen", "deblur", "color-correct", "general", "compress"],
     default: "general",
   },
   scaleFactor: {

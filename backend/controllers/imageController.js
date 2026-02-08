@@ -1,9 +1,7 @@
 import Image from "../models/Image.js";
 import { enhancedImageAPI } from "../utils/enhanceImageApi.js";
 
-// @desc    Upload and enhance image
-// @route   POST /api/images/enhance
-// @access  Private (or guest with temporary record)
+
 const enhanceImage = async (req, res) => {
   try {
     const { enhancementType, scaleFactor } = req.body;
@@ -13,10 +11,9 @@ const enhanceImage = async (req, res) => {
       return res.status(400).json({ message: "Please upload an image" });
     }
 
-    // Handle user - either authenticated or null for guest
+
     const userId = req.user ? req.user._id : null;
 
-    // Create pending image record
     const image = await Image.create({
       user: userId,
       originalImage: file.path,
@@ -28,7 +25,7 @@ const enhanceImage = async (req, res) => {
       status: "processing",
     });
 
-    // Process image enhancement (non-blocking)
+  
     processEnhancement(image._id, file, enhancementType, scaleFactor);
 
     res.status(201).json({
@@ -42,7 +39,6 @@ const enhanceImage = async (req, res) => {
   }
 };
 
-// @desc    Process image enhancement
 async function processEnhancement(imageId, file, enhancementType, scaleFactor) {
   try {
     const result = await enhancedImageAPI(file, enhancementType, scaleFactor);
@@ -59,9 +55,7 @@ async function processEnhancement(imageId, file, enhancementType, scaleFactor) {
   }
 }
 
-// @desc    Get user images
-// @route   GET /api/images
-// @access  Private
+
 const getUserImages = async (req, res) => {
   try {
     const { page = 1, limit = 10, type } = req.query;
@@ -89,9 +83,7 @@ const getUserImages = async (req, res) => {
   }
 };
 
-// @desc    Get single image
-// @route   GET /api/images/:id
-// @access  Private
+
 const getImageById = async (req, res) => {
   try {
     const image = await Image.findById(req.params.id);
@@ -106,9 +98,7 @@ const getImageById = async (req, res) => {
   }
 };
 
-// @desc    Delete image
-// @route   DELETE /api/images/:id
-// @access  Private
+
 const deleteImage = async (req, res) => {
   try {
     const image = await Image.findById(req.params.id);
@@ -124,9 +114,6 @@ const deleteImage = async (req, res) => {
   }
 };
 
-// @desc    Get enhancement types
-// @route   GET /api/images/types
-// @access  Public
 const getEnhancementTypes = async (req, res) => {
   res.json([
     { id: "upscale", name: "Upscale", description: "Increase image resolution up to 4x" },

@@ -181,7 +181,7 @@ const Dashboard = () => {
             <Spotlight />
             <Navbar />
             <main className="pt-16 px-4 pb-12">
-                {/* Header */}
+                
                 <div className="max-w-7xl mx-auto mb-8">
                     <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
                         Image Enhancer
@@ -245,7 +245,7 @@ const Dashboard = () => {
                     </div>
                 )}
 
-                {/* Loading State */}
+
                 {loading && (
                     <div className="max-w-2xl mx-auto animate-fade-in">
                         <div className="card py-16">
@@ -286,7 +286,7 @@ const Dashboard = () => {
                                 <div className="bg-gray-800 px-4 py-3 border-b border-gray-700 flex items-center justify-between">
                                     <h3 className="text-white font-medium">Enhanced</h3>
                                     <span className="bg-green-900/50 text-green-400 text-xs px-2 py-1 rounded">
-                                        AI Processed
+                                       
                                     </span>
                                 </div>
                                 <div className="aspect-video flex items-center justify-center bg-gray-900 p-4">

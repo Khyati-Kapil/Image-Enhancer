@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import GalleryPage from "./pages/Gallery";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import CompressImage from "./components/CompressImage";
 
 function App() {
   return (
@@ -28,7 +29,15 @@ function App() {
               </ProtectedRoute>
             }
           />
-<Route
+          <Route
+            path="/compress"
+            element={
+              <ProtectedRoute allowGuest={true}>
+                <CompressImage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/gallery"
             element={
               <ProtectedRoute allowGuest={true}>

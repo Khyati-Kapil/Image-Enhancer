@@ -46,6 +46,13 @@ const Hero = () => {
               </svg>
             </Link>
             <Link
+              to="/compress"
+              className="btn-secondary flex items-center space-x-2 hover-scale"
+              style={{ borderRadius: 0 }}
+            >
+              <span>Compress Image</span>
+            </Link>
+            <Link
               to="/signup"
               className="btn-secondary flex items-center space-x-2 hover-scale"
               style={{ borderRadius: 0 }}
