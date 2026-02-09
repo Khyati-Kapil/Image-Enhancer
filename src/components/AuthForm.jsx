@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate, Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 import Spotlight from "./Spotlight";
 
 const AuthForm = ({ type = "login" }) => {
@@ -58,20 +59,31 @@ const AuthForm = ({ type = "login" }) => {
       <div className="relative w-full max-w-md animate-fade-in">
        
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center space-x-3">
-            <div className="w-12 h-12 bg-white flex items-center justify-center border border-gray-700">
-              <svg className="w-7 h-7 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <span className="text-2xl font-bold tracking-tight">
-              Pixora
-            </span>
-          </Link>
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Link to="/" className="inline-flex items-center space-x-3">
+              <div className="w-12 h-12 bg-white flex items-center justify-center border border-gray-700">
+                <svg className="w-7 h-7 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <span className="text-2xl font-bold tracking-tight">
+                Pixora
+              </span>
+            </Link>
+          </motion.div>
         </div>
 
         
-        <div className="card glow-subtle">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          className="card glow-subtle"
+        >
           
           <div className="flex border border-gray-800 mb-6">
             <button
@@ -185,7 +197,7 @@ const AuthForm = ({ type = "login" }) => {
           <p className="mt-6 text-center text-xs text-gray-600">
             By continuing, you agree to our Terms of Service and Privacy Policy
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Spotlight from "../components/Spotlight";
 import { enhancedImageAPI } from "../utils/enhanceImageApi";
@@ -183,12 +184,21 @@ const Dashboard = () => {
             <main className="pt-16 px-4 pb-12">
                 
                 <div className="max-w-7xl mx-auto mb-8">
-                    <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-3xl md:text-4xl font-bold text-white mb-2"
+                    >
                         Image Enhancer
-                    </h1>
-                    <p className="text-gray-400">
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-gray-400"
+                    >
                         Transform your images with AI-powered enhancement
-                    </p>
+                    </motion.p>
                 </div>
 
             

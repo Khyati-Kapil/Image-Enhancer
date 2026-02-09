@@ -34,12 +34,11 @@ body {
 
 .checkered-bg {
   background-image: 
-    linear-gradient(45deg, #141414 25%, transparent 25%, transparent 75%, #141414 75%, #141414),
-    linear-gradient(45deg, #141414 25%, transparent 25%, transparent 75%, #141414 75%, #141414);
-  background-size: 60px 60px;
+    linear-gradient(45deg, #080808 25%, transparent 25%, transparent 75%, #080808 75%, #080808),
+    linear-gradient(45deg, #080808 25%, transparent 25%, transparent 75%, #080808 75%, #080808);
+  background-size: 70px 70px;
   background-position: 0 0, 30px 30px;
 }
-
 
 .checkered-light {
   background-image: 
@@ -145,6 +144,21 @@ body {
   100% { background-position: 200% 0; }
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-25px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-25px); }
+}
+
 .animate-fade-in {
   animation: fadeIn 0.6s ease forwards;
 }
@@ -165,6 +179,18 @@ body {
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
   background-size: 200% 100%;
   animation: shimmer 2s infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 5s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
 }
 
 

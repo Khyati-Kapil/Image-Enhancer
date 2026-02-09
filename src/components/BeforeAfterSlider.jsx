@@ -41,19 +41,19 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, beforeLabel = "Original", 
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="relative rounded-2xl overflow-hidden bg-gray-800/50 border border-gray-700"
+      className="relative w-full max-w-3xl mx-auto rounded-xl overflow-hidden bg-gray-800/50 border border-gray-700"
     >
      
       <div
         ref={containerRef}
-        className="relative w-full h-[400px] md:h-[500px] cursor-ew-resize select-none"
+        className="relative w-80 h-75 md:h-112.5 cursor-ew-resize select-none"
         onTouchMove={handleTouchMove}
       >
        
         <img
           src={beforeImage}
           alt={beforeLabel}
-          className="absolute inset-0 w-full h-full object-contain blur-[1px]"
+          className="absolute inset-0 w-full h-full object-contain grayscale"
         />
 
         
@@ -76,12 +76,12 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, beforeLabel = "Original", 
           onTouchStart={handleMouseDown}
         >
           
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center">
             <div className="flex items-center space-x-1">
-              <svg className="w-4 h-4 text-gray-600 transform rotate-180" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-3 h-3 text-gray-600 transform rotate-180" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
-              <svg className="w-4 h-4 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
+              <svg className="w-3 h-3 text-gray-600" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
               </svg>
             </div>
@@ -89,24 +89,17 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, beforeLabel = "Original", 
         </div>
 
         
-        <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full text-white text-sm font-medium">
-          {beforeLabel}
-        </div>
-        <div className="absolute top-4 right-4 bg-gradient-to-r from-blue-500 to-purple-600 px-3 py-1.5 rounded-full text-white text-sm font-medium">
-          {afterLabel}
-        </div>
+       
       </div>
 
       
-      <div className="p-4 border-t border-gray-700">
+      <div >
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <span className="text-gray-400 text-sm">Drag the slider to compare</span>
           </div>
           <div className="flex items-center space-x-4 text-sm">
-            <span className="text-gray-500">
-              Position: <span className="text-white font-medium">{sliderPosition.toFixed(0)}%</span>
-            </span>
+           
           </div>
         </div>
       </div>

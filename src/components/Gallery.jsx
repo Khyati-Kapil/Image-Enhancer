@@ -65,7 +65,6 @@ const Gallery = ({ images, onDelete, onEnhanceAgain }) => {
             <option value="general">General</option>
           </select>
 
-=
           <div className="flex bg-gray-800 rounded-lg p-1">
             <button
               onClick={() => setViewMode("grid")}
