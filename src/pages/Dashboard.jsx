@@ -5,6 +5,7 @@ import Spotlight from "../components/Spotlight";
 import { enhancedImageAPI } from "../utils/enhanceImageApi";
 import { imageService } from "../services/image";
 import { useAuth } from "../context/AuthContext";
+import BeforeAfterSlider from "../components/BeforeAfterSlider";
 
 const Icons = {
   Brightness: () => (
@@ -57,7 +58,8 @@ const Dashboard = () => {
         blur: 0,
         grayscale: 0,
     });
-    const [activeTab, setActiveTab] = useState("upload"); 
+const [activeTab, setActiveTab] = useState("upload"); 
+    const [showSlider, setShowSlider] = useState(true);
     const fileInputRef = useRef(null);
 
     const UploadImageHandler = async (file) => {
@@ -276,39 +278,64 @@ const Dashboard = () => {
                 {activeTab === "result" && enhancedImage && !loading && (
                     <div className="max-w-7xl mx-auto animate-fade-in">
                    
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-                            
-                            <div className="card overflow-hidden">
-                                <div className="bg-gray-800 px-4 py-3 border-b border-gray-700">
-                                    <h3 className="text-white font-medium">Original</h3>
-                                </div>
-                                <div className="aspect-video flex items-center justify-center bg-gray-900 p-4">
-                                    <img 
-                                        src={uploadImage} 
-                                        alt="Original" 
-                                        className="max-w-full max-h-full object-contain"
-                                    />
-                                </div>
-                            </div>
-
-                           
-                            <div className="card overflow-hidden lg:col-span-2">
-                                <div className="bg-gray-800 px-4 py-3 border-b border-gray-700 flex items-center justify-between">
-                                    <h3 className="text-white font-medium">Enhanced</h3>
-                                    <span className="bg-green-900/50 text-green-400 text-xs px-2 py-1 rounded">
-                                       
-                                    </span>
-                                </div>
-                                <div className="aspect-video flex items-center justify-center bg-gray-900 p-4">
-                                    <img 
-                                        src={enhancedImage.image} 
-                                        alt="Enhanced" 
-                                        className="max-w-full max-h-full object-contain"
-                                        style={getImageStyle()}
-                                    />
-                                </div>
-                            </div>
+                        <div className="flex justify-end mb-4">
+                            <button
+                                onClick={() => setShowSlider(!showSlider)}
+                                className="btn-secondary flex items-center gap-2 hover-scale"
+                                style={{ borderRadius: 0 }}
+                            >
+                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                                </svg>
+                                <span>{showSlider ? "Show Side by Side" : "Show Slider Comparison"}</span>
+                            </button>
                         </div>
+
+                        {showSlider ? (
+                            <div className="mb-8">
+                                <BeforeAfterSlider 
+                                    beforeImage={uploadImage}
+                                    afterImage={enhancedImage.image}
+                                    beforeLabel="Original"
+                                    afterLabel="Enhanced"
+                                />
+                                <p className="text-center text-gray-400 text-sm mt-4">
+                                    Drag the slider to compare original and enhanced images
+                                </p>
+                            </div>
+                        ) : (
+                           
+                            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                            
+                                <div className="card overflow-hidden">
+                                    <div className="bg-gray-800 px-4 py-3 border-b border-gray-700">
+                                        <h3 className="text-white font-medium">Original</h3>
+                                    </div>
+                                    <div className="aspect-video flex items-center justify-center bg-gray-900 p-4">
+                                        <img 
+                                            src={uploadImage} 
+                                            alt="Original" 
+                                            className="max-w-full max-h-full object-contain"
+                                        />
+                                    </div>
+                                </div>
+
+                               
+                                <div className="card overflow-hidden lg:col-span-2">
+                                    <div className="bg-gray-800 px-4 py-3 border-b border-gray-700 flex items-center justify-between">
+                                        <h3 className="text-white font-medium">Enhanced</h3>
+                                    </div>
+                                    <div className="aspect-video flex items-center justify-center bg-gray-900 p-4">
+                                        <img 
+                                            src={enhancedImage.image} 
+                                            alt="Enhanced" 
+                                            className="max-w-full max-h-full object-contain"
+                                            style={getImageStyle()}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        )}
 
                        
                         <div className="card mb-6">

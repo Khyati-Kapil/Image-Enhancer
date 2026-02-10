@@ -50,10 +50,10 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, beforeLabel = "Original", 
         onTouchMove={handleTouchMove}
       >
        
-        <img
+<img
           src={beforeImage}
           alt={beforeLabel}
-          className="absolute inset-0 w-full h-full object-contain grayscale"
+          className="absolute inset-0 w-full h-full object-contain"
         />
 
         
